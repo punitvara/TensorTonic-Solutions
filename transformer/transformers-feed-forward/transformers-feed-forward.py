@@ -1,0 +1,10 @@
+import numpy as np
+
+def feed_forward(x: np.ndarray, W1: np.ndarray, b1: np.ndarray,
+                 W2: np.ndarray, b2: np.ndarray) -> np.ndarray:
+    """
+    Apply position-wise feed-forward network.
+    """
+    # Your code here
+    hidden = np.maximum(0, x @ W1 + b1)   # ReLU, shape: (batch_size, seq_len, d_ff)
+    return hidden @ W2 + b2               # shape: (batch_size, seq_len, d_model)
